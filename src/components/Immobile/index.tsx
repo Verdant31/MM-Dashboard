@@ -33,7 +33,7 @@ interface ImmobileProps {
 export function Immobile({ immobile }: ImmobileProps) {
     const toast = useToast();
 
-    const [listImagesURL, setListImagesURL] = useState<string[]>(immobile.images);
+    const [listImagesURL] = useState<string[]>(immobile.images);
     const [type, setType] = useState(immobile.type);
     const [price, setPrice] = useState(immobile.price);
     const [size, setSize] = useState(immobile.size);

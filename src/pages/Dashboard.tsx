@@ -17,7 +17,6 @@ import firebase from 'firebase';
 import { Immobile as Imovel } from '../components/Immobile';
 import { CreateImmobileForm } from '../components/CreateImmobileForm';
 import { useHistory } from 'react-router';
-import { Loading } from '../components/Utility/Load/Loading';
 import { Error } from '../components/Utility/Error/Error';
 
 
@@ -50,7 +49,7 @@ export function Dashboard() {
         history.push('/');
     }
 
-    const { isLoading, isError } =
+    const { isError } =
         useInfiniteQuery(
             'imóveis',
             async () => {
