@@ -21,17 +21,19 @@ function App() {
   const queryClient = new QueryClient();
 
   return (
-    <AuthContextProvider>
+    <BrowserRouter>
 
-      <BrowserRouter>
+      <AuthContextProvider>
+
         <ChakraProvider theme={theme}>
           <QueryClientProvider client={queryClient}>
             <Route path="/" exact component={Login} />
             <Route path="/dashboard" component={Dashboard} />
           </QueryClientProvider>
         </ChakraProvider>
-      </BrowserRouter>
-    </AuthContextProvider>
+      </AuthContextProvider>
+    </BrowserRouter>
+
 
   );
 }
