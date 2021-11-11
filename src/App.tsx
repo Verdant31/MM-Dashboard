@@ -1,25 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//React Router
+import { Route, BrowserRouter } from 'react-router-dom';
+
+//React-query
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+//Chakra
+import { ChakraProvider } from "@chakra-ui/react"
+
+//Styles
+import { theme } from './styles/theme';
+
+//Components
+import { Login } from './pages/Login';
+import { Dashboard } from './pages/Dashboard';
+import { AuthContextProvider } from './contexts/AuthContext';
+
+
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContextProvider>
+
+      <BrowserRouter>
+        <ChakraProvider theme={theme}>
+          <QueryClientProvider client={queryClient}>
+            <Route path="/" exact component={Login} />
+            <Route path="/dashboard" component={Dashboard} />
+          </QueryClientProvider>
+        </ChakraProvider>
+      </BrowserRouter>
+    </AuthContextProvider>
+
   );
 }
 
