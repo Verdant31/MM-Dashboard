@@ -104,7 +104,6 @@ export function CreateImmobileForm() {
     setListImages(oldState => [...oldState, ...event.target.files])
   }
 
-  console.log(price);
 
 
   return (
