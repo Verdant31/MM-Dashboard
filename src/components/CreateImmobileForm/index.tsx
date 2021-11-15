@@ -52,12 +52,12 @@ export function CreateImmobileForm() {
   async function SaveImmobile(event: any) {
     if (listImagesURL == null ||
       type === '' ||
-      price === 0 ||
-      size === 0 ||
-      bathrooms === 0 ||
-      rooms === 0 ||
-      suites === 0 ||
-      slots === 0
+      price === null ||
+      size === null ||
+      bathrooms === null ||
+      rooms === null ||
+      suites === null ||
+      slots === null
     ) {
       toast({
         title: 'Por favor, preencha todos os campos',
